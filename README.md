@@ -16,6 +16,8 @@ You'll get the origin of this investigation.
 
 This is related to the [cljdoc issue #261](https://github.com/cljdoc/cljdoc/issues/261).
 
+The generated crash report is available in `resources/clojure-7761295136030698780.edn`.
+
 ## Installation
 
 You need leiningen and usual stuff of clojure development environment.
