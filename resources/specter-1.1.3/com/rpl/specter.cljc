@@ -1452,6 +1452,14 @@
                coll? [ALL p]
                )))
 
+(comment
+  (macroexpand '(recursive-path [afn] p
+                                (cond-path (pred afn) STAY
+                                           coll? [ALL p]
+                                           )))
+  ;; (com.rpl.specter.impl/direct-nav-obj (clojure.core/fn [afn] (clojure.core/let [p (com.rpl.specter.impl/local-declarepath)] (com.rpl.specter/providepath p (cond-path (pred afn) STAY coll? [ALL p])) p)))
+  )
+
 (def
   ^{:doc "Like `walker` but maintains metadata of any forms traversed."}
   codewalker

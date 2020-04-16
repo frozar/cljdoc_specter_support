@@ -6,6 +6,6 @@
 (defn -main
   "Highlight a crash of cljs.analyzer.api/analyze-file on the file specter.cljc"
   []
-  (let [file (io/file "resources/specter-1.1.3/com/rpl/specter.cljc")]
+  (let [file (io/file "resources/specter-1.1.3/com/rpl/minispecter.cljc")]
     (ana/no-warn
      (ana/analyze-file file))))
