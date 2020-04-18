@@ -5,11 +5,10 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.10.1"]
                  [org.clojure/clojurescript "1.10.597"]
-                 ;; Necessary add com.rpl/specter as a dependency. This allows
-                 ;; cljs.analyzer.api/analyze-file to find the compilation
-                 ;; dependencies from the "com.rpl.specter" name space.
-                 [com.rpl/specter "1.1.3"]
+                 ;; specter 1.1.3 dependencies
+                 [riddley "0.1.12"]
                  ]
   :main ^:skip-aot cljdoc-specter-support.core
   :target-path "target/%s"
+  :source-paths ["src/main" "src/lib/specter-1.1.3"]
   :profiles {:uberjar {:aot :all}})
