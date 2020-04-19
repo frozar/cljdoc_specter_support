@@ -16,4 +16,5 @@
 
   (let [file (io/file "src/lib/specter-1.1.3/com/rpl/specter.cljc")]
     (ana/no-warn
-     (ana/analyze-file file))))
+     (ana/analyze-file file))
+    (prn "Success!")))

@@ -14,6 +14,7 @@
                recursive-path]]))
   #?(:cljs (:refer-clojure :exclude [NONE]))
 
+  #?(:cljs (:use [cljs.core :only [coll?]]))
   (:require [com.rpl.specter.impl :as i]
             [com.rpl.specter.navs :as n]
             #?(:clj [clojure.walk :as cljwalk])
