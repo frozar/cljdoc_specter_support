@@ -14,7 +14,7 @@
                recursive-path]]))
   #?(:cljs (:refer-clojure :exclude [NONE]))
 
-  #?(:cljs (:use [cljs.core :only [coll?]]))
+  ;; #?(:cljs (:use [cljs.core :only [coll?]]))
   (:require [com.rpl.specter.impl :as i]
             [com.rpl.specter.navs :as n]
             #?(:clj [clojure.walk :as cljwalk])
@@ -94,6 +94,21 @@
               (let [~self-sym (i/local-declarepath)]
                 (providepath ~self-sym ~path)
                 ~self-sym)))))
+
+     ;; (defmacro investigation-macro [body]
+     ;;   `(if ~body
+     ;;      "that's a collection"
+     ;;      "NOT A COLLECTION"))
+     (defmacro investigation-macro [body]
+       `(~body))
+
+     (defmacro investigation-macro-fn-1 [& args]
+       `(vary-meta (fn ~@args) assoc :depth 1))
+
+     (defmacro investigation-macro-fn [fn-name args body]
+       ;; `(defn ~fn-name ~args ~body)
+       `(def ~fn-name (investigation-macro-fn-1 ~args ~body))
+       )
 
      ;; copied from tools.macro to avoid the dependency
      (defn- name-with-attributes
@@ -312,9 +327,7 @@
        "Navigates to each value specified by the path and replaces it by `aval`.
        This macro will do inline caching of the path."
        [apath aval structure]
-       `(i/compiled-setval* (path ~apath) ~aval ~structure))
-
-    ))
+       `(i/compiled-setval* (path ~apath) ~aval ~structure))))
 
 (def ^{:doc "Global value used to indicate no elements selected during
              [[select-any]]."}
@@ -418,13 +431,84 @@
       STOP
       pairs)))
 
+(comment
+  ;; (def
+  ;;   cond-path
+  ;;   (com.rpl.specter/dynamicnav
+  ;;    [& conds]
+  ;;    (let
+  ;;        [pairs (reverse (partition 2 conds))]
+  ;;      (reduce
+  ;;       (fn [p [tester apath]] (if-path tester apath p))
+  ;;       STOP
+  ;;       pairs))))
+  (macroexpand '(com.rpl.specter/dynamicnav
+                 [& conds]
+                 (let
+                     [pairs (reverse (partition 2 conds))]
+                   (reduce
+                    (fn [p [tester apath]] (if-path tester apath p))
+                    STOP
+                    pairs))))
+  ;; (clojure.core/vary-meta
+  ;;  (com.rpl.specter/wrap-dynamic-nav
+  ;;   (clojure.core/fn
+  ;;     [& conds]
+  ;;     (let
+  ;;         [pairs (reverse (partition 2 conds))]
+  ;;       (reduce
+  ;;        (fn [p [tester apath]] (if-path tester apath p))
+  ;;        STOP
+  ;;        pairs))))
+  ;;  clojure.core/assoc
+  ;;  :dynamicnav
+  ;;  true)
+  )
 
-(def
-  ^{:doc "Navigate the data structure until reaching
-          a value for which `afn` returns truthy. Has
-          same semantics as clojure.walk."}
-  walker
-  (recursive-path [afn] p
-    (cond-path (pred afn) STAY
-               coll? [ALL p]
-               )))
+;; (def
+;;   ^{:doc "Navigate the data structure until reaching
+;;           a value for which `afn` returns truthy. Has
+;;           same semantics as clojure.walk."}
+;;   walker
+;;   (recursive-path [afn] p
+;;     (cond-path (pred afn) STAY
+;;                coll? [ALL p]
+;;                )))
+
+;; (def investigation-fn
+;;   (fn [predicat maybe-coll]
+;;     (if (predicat maybe-coll)
+;;       "that's a collection"
+;;       "NOT A COLLECTION")))
+
+(investigation-macro-fn investigation-fn [predicat maybe-coll]
+                        (if (predicat maybe-coll)
+                          "that's a collection"
+                          "NOT A COLLECTION"))
+
+(comment
+  (macroexpand '(investigation-macro-fn investigation-fn [predicat maybe-coll]
+                                        (if (predicat maybe-coll)
+                                          "that's a collection"
+                                          "NOT A COLLECTION"))))
+
+(def investigation-str
+  (investigation-macro (investigation-fn coll? (range 3))))
+
+(comment
+  (macroexpand '(recursive-path [afn] p
+                                (cond-path (pred afn) STAY
+                                           coll? [ALL p]
+                                           )))
+  ;; (com.rpl.specter.impl/direct-nav-obj
+  ;;  (clojure.core/fn
+  ;;    [afn]
+  ;;    (clojure.core/let
+  ;;        [p (com.rpl.specter.impl/local-declarepath)]
+  ;;      (com.rpl.specter/providepath
+  ;;       p
+  ;;       (cond-path (pred afn) STAY coll? [ALL p]))
+  ;;      p)))
+
+  (macroexpand '(investigation-fn (coll? (range 3))))
+  )

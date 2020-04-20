@@ -9,10 +9,10 @@
   "Highlight a crash of cljs.analyzer.api/analyze-file on the file specter.cljc"
   []
 
-  (assert
-   (= (sp/select (sp/walker number?)
-                 {2 [1 2 [6 7]] :a 4 :c {:a 1 :d [2 nil]}})
-      [2 1 2 6 7 4 1 2]))
+  ;; (assert
+  ;;  (= (sp/select (sp/walker number?)
+  ;;                {2 [1 2 [6 7]] :a 4 :c {:a 1 :d [2 nil]}})
+  ;;     [2 1 2 6 7 4 1 2]))
 
   (let [file (io/file "src/lib/specter-1.1.3/com/rpl/specter.cljc")]
     (ana/no-warn
