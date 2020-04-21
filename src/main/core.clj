@@ -1,4 +1,4 @@
-(ns cljdoc-specter-support.core
+(ns core
   (:require [cljs.analyzer.api :as ana]
             [clojure.java.io :as io]
             [essential]

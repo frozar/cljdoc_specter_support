@@ -16,12 +16,11 @@ You'll get the origin of this investigation.
 
 This is related to the [cljdoc issue #261](https://github.com/cljdoc/cljdoc/issues/261).
 
-The generated crash report is available in `resources/clojure-7761295136030698780.edn`.
+The generated crash report is available in `resources/clojure-3143760720018079960.edn`.
 
 ## Installation
 
 You need leiningen and usual stuff of clojure development environment.
-NB.: the specter package v1.1.3 is available under the `resources` directory.
 
 ## Usage
 
@@ -31,11 +30,6 @@ lein run
 
 You should get an error message containing:
 ```
-Unable to resolve var: coll? in this context at line 1450 resources/specter-1.1.3/com/rpl/specter.cljc
+Syntax error (ExceptionInfo) compiling at (/tmp/form-init5983654348168614256.clj:1:73).
+Unable to resolve var: coll? in this context at line 21 src/main/essential.cljc
 ```
-
-## Observation
-
-If the `recursive-path` macro is used in the `specter.cljc` file, `analyze-file` fails.
-This macro is only used in the definition of `walker` and `codewalker` near to the
-end of `specter.cljc`.
