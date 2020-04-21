@@ -642,7 +642,7 @@
 
 (prn (macroexpand '(toto coll?)))
 (prn ((inv2) [42]))
-(System/exit 0)
+;; (System/exit 0)
 
 ;; (let*
 ;;  [info__3948__auto__
