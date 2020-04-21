@@ -1,0 +1,255 @@
+{:clojure.main/message
+ "Syntax error (ExceptionInfo) compiling at (/tmp/form-init2227284525316453989.clj:1:73).\nUnable to resolve var: coll? in this context at line 21 src/main/essential.cljc\n",
+ :clojure.main/triage
+ {:clojure.error/phase :compile-syntax-check,
+  :clojure.error/line 1,
+  :clojure.error/column 73,
+  :clojure.error/source "form-init2227284525316453989.clj",
+  :clojure.error/path "/tmp/form-init2227284525316453989.clj",
+  :clojure.error/class clojure.lang.ExceptionInfo,
+  :clojure.error/cause
+  "Unable to resolve var: coll? in this context at line 21 src/main/essential.cljc"},
+ :clojure.main/trace
+ {:via
+  [{:type clojure.lang.Compiler$CompilerException,
+    :message
+    "Syntax error compiling at (/tmp/form-init2227284525316453989.clj:1:73).",
+    :data
+    {:clojure.error/phase :compile-syntax-check,
+     :clojure.error/line 1,
+     :clojure.error/column 73,
+     :clojure.error/source "/tmp/form-init2227284525316453989.clj"},
+    :at [clojure.lang.Compiler load "Compiler.java" 7648]}
+   {:type clojure.lang.ExceptionInfo,
+    :data
+    {:clojure.error/source "src/main/essential.cljc",
+     :clojure.error/line 21,
+     :clojure.error/column 3,
+     :clojure.error/phase :compilation},
+    :at
+    [cljs.analyzer$analyze_seq_STAR__wrap
+     invokeStatic
+     "analyzer.cljc"
+     3970]}
+   {:type clojure.lang.ExceptionInfo,
+    :message
+    "Unable to resolve var: coll? in this context at line 21 src/main/essential.cljc",
+    :data
+    {:file "src/main/essential.cljc",
+     :line 21,
+     :column 3,
+     :tag :cljs/analysis-error},
+    :at [cljs.analyzer$error invokeStatic "analyzer.cljc" 762]}],
+  :trace
+  [[cljs.analyzer$error invokeStatic "analyzer.cljc" 762]
+   [cljs.analyzer$error invoke "analyzer.cljc" 758]
+   [cljs.analyzer$error invokeStatic "analyzer.cljc" 760]
+   [cljs.analyzer$error invoke "analyzer.cljc" 758]
+   [cljs.analyzer$confirm_var_exists_throw$fn__1125$fn__1126
+    invoke
+    "analyzer.cljc"
+    872]
+   [cljs.analyzer$confirm_var_exists invokeStatic "analyzer.cljc" 866]
+   [cljs.analyzer$confirm_var_exists invoke "analyzer.cljc" 848]
+   [cljs.analyzer$confirm_var_exists_throw$fn__1125
+    invoke
+    "analyzer.cljc"
+    870]
+   [cljs.analyzer$resolve_var invokeStatic "analyzer.cljc" 1287]
+   [cljs.analyzer$resolve_var invoke "analyzer.cljc" 1181]
+   [cljs.analyzer$resolve_var invokeStatic "analyzer.cljc" 1187]
+   [cljs.analyzer$resolve_var invoke "analyzer.cljc" 1181]
+   [cljs.analyzer$var_ast invokeStatic "analyzer.cljc" 1526]
+   [cljs.analyzer$var_ast invoke "analyzer.cljc" 1520]
+   [cljs.analyzer$eval1312$fn__1314 invoke "analyzer.cljc" 1544]
+   [clojure.lang.MultiFn invoke "MultiFn.java" 252]
+   [cljs.analyzer$analyze_seq_STAR_ invokeStatic "analyzer.cljc" 3966]
+   [cljs.analyzer$analyze_seq_STAR_ invoke "analyzer.cljc" 3964]
+   [cljs.analyzer$analyze_seq_STAR__wrap
+    invokeStatic
+    "analyzer.cljc"
+    3971]
+   [cljs.analyzer$analyze_seq_STAR__wrap invoke "analyzer.cljc" 3969]
+   [cljs.analyzer$analyze_seq invokeStatic "analyzer.cljc" 3995]
+   [cljs.analyzer$analyze_seq invoke "analyzer.cljc" 3973]
+   [cljs.analyzer$analyze_form invokeStatic "analyzer.cljc" 4182]
+   [cljs.analyzer$analyze_form invoke "analyzer.cljc" 4179]
+   [cljs.analyzer$analyze_STAR_ invokeStatic "analyzer.cljc" 4232]
+   [cljs.analyzer$analyze_STAR_ invoke "analyzer.cljc" 4223]
+   [cljs.analyzer$analyze invokeStatic "analyzer.cljc" 4252]
+   [cljs.analyzer$analyze invoke "analyzer.cljc" 4235]
+   [cljs.analyzer$analyze_seq invokeStatic "analyzer.cljc" 3996]
+   [cljs.analyzer$analyze_seq invoke "analyzer.cljc" 3973]
+   [cljs.analyzer$analyze_form invokeStatic "analyzer.cljc" 4182]
+   [cljs.analyzer$analyze_form invoke "analyzer.cljc" 4179]
+   [cljs.analyzer$analyze_STAR_ invokeStatic "analyzer.cljc" 4232]
+   [cljs.analyzer$analyze_STAR_ invoke "analyzer.cljc" 4223]
+   [cljs.analyzer$analyze invokeStatic "analyzer.cljc" 4252]
+   [cljs.analyzer$analyze invoke "analyzer.cljc" 4235]
+   [cljs.analyzer$analyze invokeStatic "analyzer.cljc" 4245]
+   [cljs.analyzer$analyze invoke "analyzer.cljc" 4235]
+   [cljs.analyzer$analyze invokeStatic "analyzer.cljc" 4243]
+   [cljs.analyzer$analyze invoke "analyzer.cljc" 4235]
+   [cljs.analyzer$eval1592$fn__1594 invoke "analyzer.cljc" 2276]
+   [clojure.lang.MultiFn invoke "MultiFn.java" 252]
+   [cljs.analyzer$analyze_seq_STAR_ invokeStatic "analyzer.cljc" 3966]
+   [cljs.analyzer$analyze_seq_STAR_ invoke "analyzer.cljc" 3964]
+   [cljs.analyzer$analyze_seq_STAR__wrap
+    invokeStatic
+    "analyzer.cljc"
+    3971]
+   [cljs.analyzer$analyze_seq_STAR__wrap invoke "analyzer.cljc" 3969]
+   [cljs.analyzer$analyze_seq invokeStatic "analyzer.cljc" 3995]
+   [cljs.analyzer$analyze_seq invoke "analyzer.cljc" 3973]
+   [cljs.analyzer$analyze_form invokeStatic "analyzer.cljc" 4182]
+   [cljs.analyzer$analyze_form invoke "analyzer.cljc" 4179]
+   [cljs.analyzer$analyze_STAR_ invokeStatic "analyzer.cljc" 4232]
+   [cljs.analyzer$analyze_STAR_ invoke "analyzer.cljc" 4223]
+   [cljs.analyzer$analyze invokeStatic "analyzer.cljc" 4252]
+   [cljs.analyzer$analyze invoke "analyzer.cljc" 4235]
+   [cljs.analyzer$analyze invokeStatic "analyzer.cljc" 4245]
+   [cljs.analyzer$analyze invoke "analyzer.cljc" 4235]
+   [cljs.analyzer$analyze invokeStatic "analyzer.cljc" 4243]
+   [cljs.analyzer$analyze invoke "analyzer.cljc" 4235]
+   [cljs.analyzer$analyze_fn_method_body
+    invokeStatic
+    "analyzer.cljc"
+    2065]
+   [cljs.analyzer$analyze_fn_method_body invoke "analyzer.cljc" 2063]
+   [cljs.analyzer$analyze_fn_method invokeStatic "analyzer.cljc" 2087]
+   [cljs.analyzer$analyze_fn_method invoke "analyzer.cljc" 2067]
+   [cljs.analyzer$analyze_fn_methods_pass2_STAR_$fn__1531
+    invoke
+    "analyzer.cljc"
+    2125]
+   [clojure.core$mapv$fn__8445 invoke "core.clj" 6912]
+   [clojure.core.protocols$fn__8159 invokeStatic "protocols.clj" 168]
+   [clojure.core.protocols$fn__8159 invoke "protocols.clj" 124]
+   [clojure.core.protocols$fn__8114$G__8109__8123
+    invoke
+    "protocols.clj"
+    19]
+   [clojure.core.protocols$seq_reduce invokeStatic "protocols.clj" 31]
+   [clojure.core.protocols$fn__8144 invokeStatic "protocols.clj" 75]
+   [clojure.core.protocols$fn__8144 invoke "protocols.clj" 75]
+   [clojure.core.protocols$fn__8088$G__8083__8101
+    invoke
+    "protocols.clj"
+    13]
+   [clojure.core$reduce invokeStatic "core.clj" 6828]
+   [clojure.core$mapv invokeStatic "core.clj" 6903]
+   [clojure.core$mapv invoke "core.clj" 6903]
+   [cljs.analyzer$analyze_fn_methods_pass2_STAR_
+    invokeStatic
+    "analyzer.cljc"
+    2125]
+   [cljs.analyzer$analyze_fn_methods_pass2_STAR_
+    invoke
+    "analyzer.cljc"
+    2124]
+   [cljs.analyzer$analyze_fn_methods_pass2
+    invokeStatic
+    "analyzer.cljc"
+    2128]
+   [cljs.analyzer$analyze_fn_methods_pass2 invoke "analyzer.cljc" 2127]
+   [cljs.analyzer$eval1536$fn__1538$fn__1548
+    invoke
+    "analyzer.cljc"
+    2176]
+   [cljs.analyzer$eval1536$fn__1538 invoke "analyzer.cljc" 2176]
+   [clojure.lang.MultiFn invoke "MultiFn.java" 252]
+   [cljs.analyzer$analyze_seq_STAR_ invokeStatic "analyzer.cljc" 3966]
+   [cljs.analyzer$analyze_seq_STAR_ invoke "analyzer.cljc" 3964]
+   [cljs.analyzer$analyze_seq_STAR__wrap
+    invokeStatic
+    "analyzer.cljc"
+    3971]
+   [cljs.analyzer$analyze_seq_STAR__wrap invoke "analyzer.cljc" 3969]
+   [cljs.analyzer$analyze_seq invokeStatic "analyzer.cljc" 3995]
+   [cljs.analyzer$analyze_seq invoke "analyzer.cljc" 3973]
+   [cljs.analyzer$analyze_form invokeStatic "analyzer.cljc" 4182]
+   [cljs.analyzer$analyze_form invoke "analyzer.cljc" 4179]
+   [cljs.analyzer$analyze_STAR_ invokeStatic "analyzer.cljc" 4232]
+   [cljs.analyzer$analyze_STAR_ invoke "analyzer.cljc" 4223]
+   [cljs.analyzer$analyze invokeStatic "analyzer.cljc" 4252]
+   [cljs.analyzer$analyze invoke "analyzer.cljc" 4235]
+   [cljs.analyzer$analyze_seq invokeStatic "analyzer.cljc" 3996]
+   [cljs.analyzer$analyze_seq invoke "analyzer.cljc" 3973]
+   [cljs.analyzer$analyze_form invokeStatic "analyzer.cljc" 4182]
+   [cljs.analyzer$analyze_form invoke "analyzer.cljc" 4179]
+   [cljs.analyzer$analyze_STAR_ invokeStatic "analyzer.cljc" 4232]
+   [cljs.analyzer$analyze_STAR_ invoke "analyzer.cljc" 4223]
+   [cljs.analyzer$analyze invokeStatic "analyzer.cljc" 4252]
+   [cljs.analyzer$analyze invoke "analyzer.cljc" 4235]
+   [cljs.analyzer$analyze invokeStatic "analyzer.cljc" 4245]
+   [cljs.analyzer$analyze invoke "analyzer.cljc" 4235]
+   [cljs.analyzer$eval1470$fn__1471$fn__1474
+    invoke
+    "analyzer.cljc"
+    1928]
+   [cljs.analyzer$eval1470$fn__1471 invoke "analyzer.cljc" 1926]
+   [clojure.lang.MultiFn invoke "MultiFn.java" 252]
+   [cljs.analyzer$analyze_seq_STAR_ invokeStatic "analyzer.cljc" 3966]
+   [cljs.analyzer$analyze_seq_STAR_ invoke "analyzer.cljc" 3964]
+   [cljs.analyzer$analyze_seq_STAR__wrap
+    invokeStatic
+    "analyzer.cljc"
+    3971]
+   [cljs.analyzer$analyze_seq_STAR__wrap invoke "analyzer.cljc" 3969]
+   [cljs.analyzer$analyze_seq invokeStatic "analyzer.cljc" 3995]
+   [cljs.analyzer$analyze_seq invoke "analyzer.cljc" 3973]
+   [cljs.analyzer$analyze_form invokeStatic "analyzer.cljc" 4182]
+   [cljs.analyzer$analyze_form invoke "analyzer.cljc" 4179]
+   [cljs.analyzer$analyze_STAR_ invokeStatic "analyzer.cljc" 4232]
+   [cljs.analyzer$analyze_STAR_ invoke "analyzer.cljc" 4223]
+   [cljs.analyzer$analyze invokeStatic "analyzer.cljc" 4252]
+   [cljs.analyzer$analyze invoke "analyzer.cljc" 4235]
+   [cljs.analyzer$analyze_seq invokeStatic "analyzer.cljc" 3996]
+   [cljs.analyzer$analyze_seq invoke "analyzer.cljc" 3973]
+   [cljs.analyzer$analyze_form invokeStatic "analyzer.cljc" 4182]
+   [cljs.analyzer$analyze_form invoke "analyzer.cljc" 4179]
+   [cljs.analyzer$analyze_STAR_ invokeStatic "analyzer.cljc" 4232]
+   [cljs.analyzer$analyze_STAR_ invoke "analyzer.cljc" 4223]
+   [cljs.analyzer$analyze invokeStatic "analyzer.cljc" 4252]
+   [cljs.analyzer$analyze invoke "analyzer.cljc" 4235]
+   [cljs.analyzer$analyze_file$fn__2627 invoke "analyzer.cljc" 4753]
+   [cljs.analyzer$analyze_file invokeStatic "analyzer.cljc" 4748]
+   [cljs.analyzer$analyze_file invoke "analyzer.cljc" 4706]
+   [cljs.analyzer$analyze_file invokeStatic "analyzer.cljc" 4720]
+   [cljs.analyzer$analyze_file invoke "analyzer.cljc" 4706]
+   [cljs.analyzer.api$analyze_file invokeStatic "api.cljc" 153]
+   [cljs.analyzer.api$analyze_file invoke "api.cljc" 138]
+   [cljs.analyzer.api$analyze_file invokeStatic "api.cljc" 149]
+   [cljs.analyzer.api$analyze_file invoke "api.cljc" 138]
+   [cljs.analyzer.api$analyze_file invokeStatic "api.cljc" 147]
+   [cljs.analyzer.api$analyze_file invoke "api.cljc" 138]
+   [core$_main$fn__2715 invoke "core.clj" 16]
+   [core$_main invokeStatic "core.clj" 15]
+   [core$_main invoke "core.clj" 8]
+   [clojure.lang.Var invoke "Var.java" 380]
+   [user$eval140 invokeStatic "form-init2227284525316453989.clj" 1]
+   [user$eval140 invoke "form-init2227284525316453989.clj" 1]
+   [clojure.lang.Compiler eval "Compiler.java" 7177]
+   [clojure.lang.Compiler eval "Compiler.java" 7167]
+   [clojure.lang.Compiler load "Compiler.java" 7636]
+   [clojure.lang.Compiler loadFile "Compiler.java" 7574]
+   [clojure.main$load_script invokeStatic "main.clj" 475]
+   [clojure.main$init_opt invokeStatic "main.clj" 477]
+   [clojure.main$init_opt invoke "main.clj" 477]
+   [clojure.main$initialize invokeStatic "main.clj" 508]
+   [clojure.main$null_opt invokeStatic "main.clj" 542]
+   [clojure.main$null_opt invoke "main.clj" 539]
+   [clojure.main$main invokeStatic "main.clj" 664]
+   [clojure.main$main doInvoke "main.clj" 616]
+   [clojure.lang.RestFn applyTo "RestFn.java" 137]
+   [clojure.lang.Var applyTo "Var.java" 705]
+   [clojure.main main "main.java" 40]],
+  :cause
+  "Unable to resolve var: coll? in this context at line 21 src/main/essential.cljc",
+  :data
+  {:file "src/main/essential.cljc",
+   :line 21,
+   :column 3,
+   :tag :cljs/analysis-error},
+  :phase :compile-syntax-check}}
+

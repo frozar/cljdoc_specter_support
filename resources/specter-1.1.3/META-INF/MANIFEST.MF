@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Leiningen-Project-GroupId: com.rpl
-Built-By: nathan
-Leiningen-Project-Version: 1.1.3
-Leiningen-Project-ArtifactId: specter
-Created-By: Leiningen 2.9.0
-Build-Jdk: 1.8.0_111
-Main-Class: clojure.main
-
