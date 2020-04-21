@@ -15,10 +15,12 @@
               ;; recursive-path
               ;; providepath
               path
-              path2]]))
+              path2
+              toto]]))
   #?(:cljs (:refer-clojure :exclude [NONE]))
 
   ;; #?(:cljs (:use [cljs.core :only [coll?]]))
+
   (:require [com.rpl.specter.impl :as i]
             ;; [com.rpl.specter.navs :as n]
             ;; [clojure.pprint :as pp]
@@ -322,11 +324,15 @@
            (let [s (get locals-set path)
                  embed (i/maybe-direct-nav path (-> s meta :direct-nav))]
              `(com.rpl.specter.impl/->LocalSym ~path (quote ~embed)))
-           ;; var-get doesn't work in cljs, so capture the val in the macro instead
-           `(com.rpl.specter.impl/->VarUse
-              ~path
-              ~(if-not (instance? Class (resolve path)) `(var ~path))
-              (quote ~path)))
+           ;; ;; var-get doesn't work in cljs, so capture the val in the macro instead
+           ;; `(com.rpl.specter.impl/->VarUse
+           ;;    ~path
+           ;;    ~(if-not (instance? Class (resolve path)) `(var ~path))
+           ;;    (quote ~path))
+           ;; `(com.rpl.specter.impl/->VarUse
+           ;;   ~(if-not (instance? Class (resolve path)) `(var ~path)))
+           `(var ~path)
+           )
 
 
          (i/fn-invocation? path)
@@ -346,7 +352,9 @@
          ;;   `(com.rpl.specter.impl/->DynamicVal (quote ~path)))
          ))
 
-
+     (defmacro toto
+       [arg]
+       `(var ~arg))
 
      (defmacro path2
        "Same as calling comp-paths, except it caches the composition of the static parts
@@ -624,11 +632,17 @@
 ;;     (providepath p (cond-path coll? [42 p]))
 ;;     p))
 
-(defn inv1 [afn]
-  (path2 coll? [42 42]))
+;; (defn inv1 [afn]
+;;   (path2 coll? [42 42]))
 
-(println (macroexpand '(path2 coll? [42 42])))
-;; (System/exit 0)
+;; (println (macroexpand '(path2 coll? [42 42])))
+
+(defn inv2 []
+  (toto coll?))
+
+(prn (macroexpand '(toto coll?)))
+(prn ((inv2) [42]))
+(System/exit 0)
 
 ;; (let*
 ;;  [info__3948__auto__
