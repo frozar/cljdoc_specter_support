@@ -20,5 +20,7 @@
 (defn simple []
   (varialization coll?))
 
-;; (prn (macroexpand '(varialization coll?)))
-;; (prn ((simple) [42]))
+(comment
+  (prn (macroexpand '(varialization coll?)))
+  (prn ((simple) [:foo]))
+  )
